@@ -514,7 +514,7 @@
         <div class="btn-group">
             <a href="#" class="btn btn-primary" id="contactCta"><i class="fas fa-paper-plane"></i> Get in touch</a>
             <a href="#" class="btn btn-outline" id="resumeCta"><i class="fas fa-file-alt"></i> View Resume</a>
-            <a href="#" class="btn btn-outline" id="leetcodeCta"><i class="fab fa-leetcode"></i> Leetcode Profile</a>
+            <a href="https://leetcode.com/u/ChaithanyaKrishna1998/" target="_blank" class="btn btn-outline"><i class="fab fa-leetcode"></i> Leetcode Profile</a>
         </div>
     </div>
 </header>
@@ -735,8 +735,25 @@
                 <div class="leetcode-stats">
                     <div class="leetcode-header">
                         <i class="fab fa-leetcode"></i>
-                        <h3 style="color:white;">Chaithanya Krishna | 500+ Problems Solved</h3>
+                        <h3 style="color:white;">Chaithanya Krishna | LeetCode Profile</h3>
                     </div>
+                    <p style="margin-bottom: 1rem;">Passionate about data structures, algorithms, and system design. Regular participant in weekly contests.</p>
+                    <div class="problem-stats">
+                        <span class="stat-badge easy"><i class="fas fa-check-circle"></i> Easy: 213/935</span>
+                        <span class="stat-badge medium"><i class="fas fa-chart-line"></i> Medium: 425/2033</span>
+                        <span class="stat-badge hard"><i class="fas fa-star"></i> Hard: 66/919</span>
+                        <span class="stat-badge"><i class="fas fa-trophy"></i> Badges: 6</span>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>Most Recent Badge:</strong> 50 Days Badge 2026</p>
+                        <p><strong>Solved:</strong> 704/3887 ✅ | <strong>Attempting:</strong> 23</p>
+                        <p><strong>Submissions (past year):</strong> 1,358</p>
+                        <p><strong>Total active days:</strong> 236 | <strong>Max streak:</strong> 46 days</p>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://leetcode.com/u/ChaithanyaKrishna1998/" target="_blank" class="btn btn-primary" style="background:#f59e0b; border-color:#f59e0b;"><i class="fab fa-leetcode"></i> Visit LeetCode Profile</a>
+                    </div>
+                </div>
                     <p style="margin-bottom: 1rem;">Passionate about data structures, algorithms, and system design. Regular participant in weekly contests.</p>
                     <div class="problem-stats">
                         <span class="stat-badge easy"><i class="fas fa-check-circle"></i> Easy: 210+</span>
@@ -780,7 +797,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-leetcode"></i>
-                        <a href="#" target="_blank">leetcode.com/chaithanya_k</a>
+                        <a href="https://leetcode.com/u/ChaithanyaKrishna1998/" target="_blank">leetcode.com/u/ChaithanyaKrishna1998</a>
                     </div>
                 </div>
                 <div style="margin-top: 2rem; background:#1e293b; border-radius: 1rem; padding: 1.5rem; text-align: center;">
@@ -861,17 +878,13 @@
         window.location.hash = 'resume';
     });
     document.getElementById('leetcodeCta')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        switchPage('leetcode');
-        window.location.hash = 'leetcode';
     });
     document.getElementById('downloadResumeBtn')?.addEventListener('click', (e) => {
         e.preventDefault();
         alert('📄 Resume PDF download will be available soon. Please check back or contact me directly!');
     });
     document.getElementById('leetcodeProfileLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        alert('🔗 Connect to my LeetCode profile: https://leetcode.com/chaithanya_k (Update with actual link)');
+        
     });
     const fakeLinks = document.querySelectorAll('.contact-item a[href="#"]');
     fakeLinks.forEach(link => {
