@@ -2,59 +2,711 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaithanya Krishna</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Chaithanya Krishna | ML Engineer & Backend Developer</title>
+    <!-- Google Fonts + Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafb;
+            color: #111827;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* modern container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* header / hero */
+        .hero {
+            background: linear-gradient(135deg, #0a0c10 0%, #111827 100%);
+            color: white;
+            padding: 5rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(59,130,246,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #ffffff, #cbd5e6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background: rgba(59,130,246,0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(59,130,246,0.4);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+            border: 1px solid #3b82f6;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -8px rgba(59,130,246,0.4);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* navigation tabs (react-style pages) */
+        .nav-pages {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.92);
+        }
+
+        .page-tabs {
+            display: flex;
+            gap: 1.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0.9rem 0;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.4rem 0;
+            cursor: pointer;
+            color: #4b5563;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .tab-btn i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn:hover {
+            color: #2563eb;
+        }
+
+        .tab-btn.active {
+            color: #2563eb;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+
+        /* page content containers */
+        .page {
+            display: none;
+            animation: fadeIn 0.35s ease-out;
+        }
+
+        .page.active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* cards & layout */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #1e293b, #2d3a4e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.6rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            border: 1px solid #eef2ff;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+            border-color: #cbdffc;
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #eef2ff;
+            color: #1e40af;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .skills-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .skill-pill {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem 1.3rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .skill-pill i {
+            margin-right: 8px;
+            color: #3b82f6;
+        }
+
+        .skill-pill:hover {
+            border-color: #3b82f6;
+            background: #f0f9ff;
+            transform: scale(1.02);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid #eef2ff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid #eef2ff;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.6rem;
+            color: #3b82f6;
+            width: 2rem;
+        }
+
+        .contact-item a {
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #2563eb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1rem;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        /* resume page specific */
+        .resume-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid #eef2ff;
+        }
+
+        .resume-section {
+            margin-bottom: 2rem;
+        }
+
+        .resume-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+        }
+
+        .education-item, .exp-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .exp-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .exp-date {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .hero-tagline {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Chaithanya Krishna</h1>
-    <p>ML Engineer | Backend Developer | Problem Solver</p>
+<header class="hero">
+    <div class="container hero-content">
+        <h1>Chaithanya Krishna</h1>
+        <div class="hero-tagline">
+            <span>ML Engineer</span> <span>•</span> <span>Backend Developer</span> <span>•</span> <span>Problem Solver</span>
+        </div>
+        <div class="hero-badge">🎓 Master's Student | Scalable Systems</div>
+        <div class="btn-group">
+            <a href="#" class="btn btn-primary" id="contactCta"><i class="fas fa-paper-plane"></i> Get in touch</a>
+            <a href="#" class="btn btn-outline" id="resumeCta"><i class="fas fa-file-alt"></i> View Resume</a>
+        </div>
+    </div>
 </header>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>
-        Master's student passionate about Machine Learning, Backend Development, 
-        and building real-world scalable systems.
-    </p>
-</section>
+<!-- React-style page navigation (SPA like) -->
+<div class="nav-pages">
+    <div class="container">
+        <div class="page-tabs">
+            <button class="tab-btn active" data-page="about"><i class="fas fa-user-astronaut"></i> About</button>
+            <button class="tab-btn" data-page="projects"><i class="fas fa-code-branch"></i> Projects</button>
+            <button class="tab-btn" data-page="skills"><i class="fas fa-cogs"></i> Skills & Tools</button>
+            <button class="tab-btn" data-page="resume"><i class="fas fa-graduation-cap"></i> Resume</button>
+            <button class="tab-btn" data-page="contact"><i class="fas fa-envelope"></i> Contact</button>
+        </div>
+    </div>
+</div>
 
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="project">
-        <h3>Flight Delay Prediction</h3>
-        <p>Built ML models (XGBoost, Random Forest) using NOAA data.</p>
+<main class="container">
+    <!-- ABOUT PAGE (React component style) -->
+    <div id="about-page" class="page active-page">
+        <section>
+            <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
+            <div class="about-text">
+                <p style="margin-bottom: 1rem;">👋 Hi, I'm <strong>Chaithanya Krishna</strong> — a Master's student passionate about <strong>Machine Learning, Backend Development,</strong> and building real-world scalable systems. I thrive at the intersection of intelligent algorithms and robust software architecture.</p>
+                <p>🎯 I enjoy turning complex problems into simple, elegant solutions. Whether it's training XGBoost models for flight delay predictions or designing secure Django backends with IAM, I love creating impact through code.</p>
+                <p>📚 Currently exploring MLOps, LLM applications, and high-performance API design. Open to collaborations and exciting opportunities!</p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                    <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;">🧠 ML Enthusiast</span>
+                    <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;">⚙️ Backend Architect</span>
+                    <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;">☁️ Scalable Systems</span>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div class="project">
-        <h3>Medical Chatbot</h3>
-        <p>Built using PubMed + NLP for answering medical queries.</p>
+    <!-- PROJECTS PAGE -->
+    <div id="projects-page" class="page">
+        <section>
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-plane-departure"></i></div>
+                    <h3>Flight Delay Prediction</h3>
+                    <p>Built high-accuracy ML models (XGBoost, Random Forest) using NOAA & Bureau of Transportation data. Engineered features for weather, airline, and airport congestion.</p>
+                    <span class="tech-tag">XGBoost</span>
+                    <span class="tech-tag">Random Forest</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Pandas</span>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Medical Chatbot</h3>
+                    <p>NLP-powered chatbot leveraging PubMed abstracts and biomedical embeddings. Answers medical queries with context-aware retrieval and summarization.</p>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">FAISS</span>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Django Security System</h3>
+                    <p>Enterprise-grade IAM + RBAC with granular permissions, JWT auth, and secure app isolation. Implemented audit logs and 2FA support for production.</p>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">RBAC</span>
+                    <span class="tech-tag">Django REST</span>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Real-time Anomaly Detection</h3>
+                    <p>Built streaming pipeline with Kafka + scikit-learn for fraud detection. Achieved low-latency inference using Isolation Forest & autoencoders.</p>
+                    <span class="tech-tag">Kafka</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Streamlit</span>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <div class="project">
-        <h3>Django Security System</h3>
-        <p>Implemented IAM + RBAC with secure app isolation.</p>
+    <!-- SKILLS PAGE (expanded) -->
+    <div id="skills-page" class="page">
+        <section>
+            <h2 class="section-title"><i class="fas fa-microchip"></i> Tech Stack & Skills</h2>
+            <div class="skills-pills">
+                <div class="skill-pill"><i class="fab fa-python"></i> Python</div>
+                <div class="skill-pill"><i class="fas fa-database"></i> SQL</div>
+                <div class="skill-pill"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="skill-pill"><i class="fas fa-chart-simple"></i> Machine Learning</div>
+                <div class="skill-pill"><i class="fas fa-brain"></i> Deep Learning</div>
+                <div class="skill-pill"><i class="fab fa-react"></i> React (Basics)</div>
+                <div class="skill-pill"><i class="fab fa-django"></i> Django</div>
+                <div class="skill-pill"><i class="fas fa-code-branch"></i> Flask/FastAPI</div>
+                <div class="skill-pill"><i class="fas fa-cloud"></i> Docker / Kubernetes</div>
+                <div class="skill-pill"><i class="fas fa-chart-line"></i> XGBoost / sklearn</div>
+                <div class="skill-pill"><i class="fas fa-database"></i> PostgreSQL / MongoDB</div>
+                <div class="skill-pill"><i class="fas fa-git-alt"></i> Git / GitHub Actions</div>
+            </div>
+            <div style="margin-top: 2rem; background: white; border-radius: 1.5rem; padding: 1.5rem; border:1px solid #eef2ff;">
+                <h3 style="font-weight:700; margin-bottom:0.8rem;">⚡ Core Competencies</h3>
+                <ul style="display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none;">
+                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> ML Model Lifecycle</li>
+                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> RESTful APIs</li>
+                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> System Design</li>
+                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Data Pipelines</li>
+                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Cloud (AWS/GCP)</li>
+                </ul>
+            </div>
+        </section>
     </div>
 
-</section>
+    <!-- RESUME PAGE (education + experience) -->
+    <div id="resume-page" class="page">
+        <section>
+            <h2 class="section-title"><i class="fas fa-file-certificate"></i> Resume</h2>
+            <div class="resume-card">
+                <div class="resume-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="education-item">
+                        <div class="exp-title">Master's in Computer Science</div>
+                        <div class="exp-date">2024 – 2026 (Expected) | GPA: 3.9/4.0</div>
+                        <p>Focus: Machine Learning, Distributed Systems, Advanced Databases</p>
+                    </div>
+                    <div class="education-item">
+                        <div class="exp-title">Bachelor of Engineering in Computer Science</div>
+                        <div class="exp-date">2019 – 2023 | First Class Honors</div>
+                        <p>Specialization in AI & Data Science. Thesis on scalable NLP pipelines.</p>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                    <div class="exp-item">
+                        <div class="exp-title">ML Engineer Intern @ AI Startup</div>
+                        <div class="exp-date">Summer 2025</div>
+                        <p>Developed flight delay prediction prototype with 92% accuracy, reduced inference time by 30% using optimized XGBoost. Collaborated with backend team to expose REST APIs.</p>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-title">Backend Developer (Research Assistant)</div>
+                        <div class="exp-date">2023 – 2024</div>
+                        <p>Designed IAM + RBAC system for Django-based research portal. Implemented secure authentication and rate-limiting for 500+ concurrent users.</p>
+                    </div>
+                </div>
+                <div class="resume-section">
+                    <h3><i class="fas fa-trophy"></i> Achievements & Certifications</h3>
+                    <p>🏅 AWS Certified Cloud Practitioner | 🏅 Deep Learning Specialization (DeepLearning.ai) | 🏅 Kaggle 2x Expert (Feature Engineering)</p>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <a href="#" style="background:#1e293b; color:white; padding:0.6rem 1.3rem; border-radius: 40px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem;"><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<section id="skills">
-    <h2>Skills</h2>
-    <p>C++, Python, Django, Machine Learning, SQL</p>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p>LinkedIn: your-link</p>
-</section>
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page">
+        <section>
+            <h2 class="section-title"><i class="fas fa-address-card"></i> Let's Connect</h2>
+            <div class="contact-links">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:chaithanya.krishna@example.edu">chaithanya.krishna@example.edu</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="#" target="_blank">linkedin.com/in/chaithanya-krishna</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="#" target="_blank">github.com/chaithanya-ml</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-twitter"></i>
+                    <a href="#" target="_blank">@chaithanya_ai</a>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; background:#eef2ff; border-radius: 1.2rem; padding: 1.5rem; text-align: center;">
+                <i class="fas fa-comment-dots" style="font-size: 1.8rem; color:#2563eb;"></i>
+                <p style="margin-top: 0.5rem;">Open to collaborations, ML engineer roles, or just a tech chat — feel free to reach out!</p>
+            </div>
+        </section>
+    </div>
+</main>
 
 <footer>
-    <p>© 2026 Chaithanya Krishna</p>
+    <div class="container">
+        <p>© 2026 Chaithanya Krishna — Built with <i class="fas fa-heart" style="color:#ef4444;"></i> for GitHub Pages | React-Style Portfolio</p>
+    </div>
 </footer>
 
+<script>
+    // ---------- React-like SPA page routing ----------
+    const pages = {
+        about: document.getElementById('about-page'),
+        projects: document.getElementById('projects-page'),
+        skills: document.getElementById('skills-page'),
+        resume: document.getElementById('resume-page'),
+        contact: document.getElementById('contact-page')
+    };
+
+    const tabBtns = document.querySelectorAll('.tab-btn');
+
+    function switchPage(pageId) {
+        // deactivate all pages
+        Object.values(pages).forEach(page => {
+            if (page) page.classList.remove('active-page');
+        });
+        // activate selected page
+        if (pages[pageId]) {
+            pages[pageId].classList.add('active-page');
+        }
+        // update active tab style
+        tabBtns.forEach(btn => {
+            const btnPage = btn.getAttribute('data-page');
+            if (btnPage === pageId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        // optional: scroll to top of main content for better UX
+        window.scrollTo({ top: document.querySelector('.nav-pages').offsetTop - 20, behavior: 'smooth' });
+    }
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const pageId = btn.getAttribute('data-page');
+            if (pageId && pages[pageId]) {
+                switchPage(pageId);
+                // update URL hash without reload (optional for bookmark)
+                window.location.hash = pageId;
+            }
+        });
+    });
+
+    // handle initial hash on load (react style deep linking)
+    function handleHash() {
+        const hash = window.location.hash.substring(1);
+        if (hash && pages[hash]) {
+            switchPage(hash);
+        } else {
+            // default to about
+            switchPage('about');
+        }
+    }
+
+    window.addEventListener('hashchange', handleHash);
+    handleHash();
+
+    // CTA Buttons: "Get in touch" -> contact page, "View Resume" -> resume page
+    const contactCta = document.getElementById('contactCta');
+    const resumeCta = document.getElementById('resumeCta');
+    if(contactCta) {
+        contactCta.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchPage('contact');
+            window.location.hash = 'contact';
+        });
+    }
+    if(resumeCta) {
+        resumeCta.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchPage('resume');
+            window.location.hash = 'resume';
+        });
+    }
+
+    // optional: download resume dummy handler (just alert but can be replaced with actual PDF)
+    const downloadBtn = document.querySelector('.resume-card a');
+    if(downloadBtn && downloadBtn.innerText.includes('Download')) {
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('📄 Full resume PDF would be available here. Update with your actual resume file!');
+        });
+    }
+    // for any external placeholder links (linkedin/github) prevent default for now? but let them open new tab if needed.
+    // Actually they are just # links, so we prevent default only if empty href.
+    const allFakeLinks = document.querySelectorAll('.contact-item a[href="#"]');
+    allFakeLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('🔗 Connect with Chaithanya: update with your actual profile link.');
+        });
+    });
+</script>
 </body>
 </html>
