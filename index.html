@@ -746,24 +746,10 @@
                     </a>
                 </div>
             </div>
-
-            <!-- Embed Leetcode Stats via API (using leetcode-stats-api or widget) -->
-            <div style="background: #1e293b; border-radius: 1rem; padding: 1.5rem; border: 1px solid #334155;">
-                <h3 style="color:white; margin-bottom: 1rem;">📊 Live LeetCode Statistics</h3>
-                <div id="leetcode-widget" style="min-height: 300px;">
-                    <p style="color: #94a3b8; text-align: center; padding: 2rem;">
-                        <i class="fas fa-spinner fa-spin"></i> Loading LeetCode stats...
-                    </p>
-                </div>
-                <div style="margin-top: 1rem; text-align: center;">
-                    <a href="https://leetcode.com/u/ChaithanyaKrishna1998/" target="_blank" style="color: #60a5fa; text-decoration: none;">
-                        <i class="fab fa-leetcode"></i> View complete profile on LeetCode →
-                    </a>
-                </div>
             </div>
-        </div>
-    </section>
-</div>
+            </section>
+            </div>
+
 
     <!-- CONTACT PAGE -->
     <div id="contact-page" class="page">
@@ -773,7 +759,7 @@
                 <div class="contact-links">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:chaithanya.krishna@psu.edu">chaithanya.krishna@psu.edu</a>
+                        <a href="mailto:chaitanyachandu88@gmail.com">chaitanyachandu88@gmail.com/a>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
@@ -800,103 +786,7 @@
 
 <script>
 
-    // Fetch LeetCode stats using public API
-async function fetchLeetCodeStats() {
-    const username = 'ChaithanyaKrishna1998';
-    const widgetDiv = document.getElementById('leetcode-widget');
-    
-    if (!widgetDiv) return;
-    
-    try {
-        // Using leetcode-api (unofficial but works for stats)
-        const response = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
-        
-        if (!response.ok) {
-            throw new Error('Failed to fetch stats');
-        }
-        
-        const data = await response.json();
-        
-        if (data.status === 'success') {
-            widgetDiv.innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-                    <div style="background: #0f172a; padding: 1rem; border-radius: 0.75rem; text-align: center;">
-                        <div style="font-size: 2rem; font-weight: 800; color: #22c55e;">${data.totalSolved || 0}</div>
-                        <div style="color: #94a3b8; font-size: 0.85rem;">Total Solved</div>
-                    </div>
-                    <div style="background: #0f172a; padding: 1rem; border-radius: 0.75rem; text-align: center;">
-                        <div style="font-size: 2rem; font-weight: 800; color: #f59e0b;">${data.ranking || 0}</div>
-                        <div style="color: #94a3b8; font-size: 0.85rem;">Global Ranking</div>
-                    </div>
-                    <div style="background: #0f172a; padding: 1rem; border-radius: 0.75rem; text-align: center;">
-                        <div style="font-size: 2rem; font-weight: 800; color: #3b82f6;">${data.acceptanceRate || 0}%</div>
-                        <div style="color: #94a3b8; font-size: 0.85rem;">Acceptance Rate</div>
-                    </div>
-                </div>
-                <div style="margin-top: 1.5rem;">
-                    <h4 style="color: white; margin-bottom: 0.5rem;">Problems Breakdown</h4>
-                    <div style="display: flex; gap: 1rem; justify-content: space-between;">
-                        <div style="flex: 1; background: #0f172a; padding: 0.75rem; border-radius: 0.5rem; text-align: center;">
-                            <div style="color: #22c55e; font-weight: 700;">Easy</div>
-                            <div style="font-size: 1.5rem; font-weight: 800;">${data.easySolved || 0}</div>
-                            <div style="font-size: 0.75rem; color: #94a3b8;">/ ${data.totalEasy || 0}</div>
-                        </div>
-                        <div style="flex: 1; background: #0f172a; padding: 0.75rem; border-radius: 0.5rem; text-align: center;">
-                            <div style="color: #f59e0b; font-weight: 700;">Medium</div>
-                            <div style="font-size: 1.5rem; font-weight: 800;">${data.mediumSolved || 0}</div>
-                            <div style="font-size: 0.75rem; color: #94a3b8;">/ ${data.totalMedium || 0}</div>
-                        </div>
-                        <div style="flex: 1; background: #0f172a; padding: 0.75rem; border-radius: 0.5rem; text-align: center;">
-                            <div style="color: #ef4444; font-weight: 700;">Hard</div>
-                            <div style="font-size: 1.5rem; font-weight: 800;">${data.hardSolved || 0}</div>
-                            <div style="font-size: 0.75rem; color: #94a3b8;">/ ${data.totalHard || 0}</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-top: 1rem; padding: 0.75rem; background: #0f172a; border-radius: 0.5rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="color: #94a3b8;">Contest Rating:</span>
-                        <span style="color: #f59e0b; font-weight: 700;">${data.contestRating || 'N/A'}</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
-                        <span style="color: #94a3b8;">Badges:</span>
-                        <span style="color: #3b82f6; font-weight: 700;">${data.badges || 0}</span>
-                    </div>
-                </div>
-            `;
-        } else {
-            widgetDiv.innerHTML = `
-                <div style="text-align: center; padding: 2rem;">
-                    <i class="fas fa-exclamation-circle" style="font-size: 2rem; color: #f59e0b;"></i>
-                    <p style="margin-top: 1rem;">Unable to fetch stats. Click below to view full profile.</p>
-                </div>
-            `;
-        }
-    } catch (error) {
-        console.error('Error fetching LeetCode stats:', error);
-        widgetDiv.innerHTML = `
-            <div style="text-align: center; padding: 2rem;">
-                <i class="fas fa-link" style="font-size: 2rem; color: #3b82f6;"></i>
-                <p style="margin-top: 1rem;">View complete profile on LeetCode</p>
-            </div>
-        `;
-    }
-}
-
-// Call the function when leetcode page becomes active
-// Add this to track page changes
-const originalSwitchPage = switchPage;
-window.switchPage = function(pageId) {
-    originalSwitchPage(pageId);
-    if (pageId === 'leetcode') {
-        fetchLeetCodeStats();
-    }
-};
-
-// Also call on initial load if leetcode page is active
-if (window.location.hash === '#leetcode') {
-    setTimeout(fetchLeetCodeStats, 500);
-}
+ 
     // SPA routing
     const pages = {
         about: document.getElementById('about-page'),
