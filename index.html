@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Chaithanya Krishna | ML Engineer & Backend Developer</title>
+    <title>Chaithanya Krishna | Software Engineer • Fullstack • DevOps • AI</title>
     <!-- Google Fonts + Font Awesome 6 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- External style.css (preserved and enhanced) -->
+    <link rel="stylesheet" href="style.css">
     <style>
+        /* Additional modern styles that complement style.css */
         * {
             margin: 0;
             padding: 0;
@@ -17,31 +20,23 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: #f9fafb;
-            color: #111827;
+            font-family: 'Inter', Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* modern container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* header / hero */
-        .hero {
-            background: linear-gradient(135deg, #0a0c10 0%, #111827 100%);
-            color: white;
-            padding: 5rem 0 4rem;
+        /* Override header styles from style.css while keeping structure */
+        header {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(135deg, #0a0c10 0%, #0f172a 100%);
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .hero::before {
+        header::before {
             content: '';
             position: absolute;
             top: -30%;
@@ -53,7 +48,7 @@
             pointer-events: none;
         }
 
-        .hero::after {
+        header::after {
             content: '';
             position: absolute;
             bottom: -20%;
@@ -65,40 +60,38 @@
             pointer-events: none;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .hero h1 {
+        header h1 {
+            margin: 0;
             font-size: 3.2rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            background: linear-gradient(to right, #ffffff, #cbd5e6);
+            background: linear-gradient(to right, #ffffff, #94a3f8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 0.75rem;
         }
 
-        .hero-tagline {
-            font-size: 1.3rem;
-            font-weight: 500;
+        header p {
+            font-size: 1.2rem;
             color: #cbd5e1;
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
-        .hero-badge {
+        .role-badges {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .role-badge {
             background: rgba(59,130,246,0.2);
             backdrop-filter: blur(4px);
-            padding: 0.3rem 0.9rem;
+            padding: 0.3rem 1rem;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             border: 1px solid rgba(59,130,246,0.4);
         }
@@ -107,7 +100,7 @@
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -147,15 +140,21 @@
             transform: translateY(-2px);
         }
 
-        /* navigation tabs (react-style pages) */
+        /* Navigation tabs */
         .nav-pages {
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
-            background: rgba(255,255,255,0.92);
+            background: rgba(30,41,59,0.95);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .page-tabs {
@@ -173,7 +172,7 @@
             font-weight: 600;
             padding: 0.4rem 0;
             cursor: pointer;
-            color: #4b5563;
+            color: #94a3b8;
             transition: all 0.2s;
             font-family: 'Inter', sans-serif;
             position: relative;
@@ -185,11 +184,11 @@
         }
 
         .tab-btn:hover {
-            color: #2563eb;
+            color: #60a5fa;
         }
 
         .tab-btn.active {
-            color: #2563eb;
+            color: #3b82f6;
         }
 
         .tab-btn.active::after {
@@ -199,11 +198,11 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: #2563eb;
+            background: #3b82f6;
             border-radius: 2px;
         }
 
-        /* page content containers */
+        /* Page content */
         .page {
             display: none;
             animation: fadeIn 0.35s ease-out;
@@ -218,9 +217,11 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* cards & layout */
+        /* Section styling (override style.css section) */
         section {
             padding: 3rem 0;
+            max-width: 1200px;
+            margin: auto;
         }
 
         .section-title {
@@ -228,13 +229,14 @@
             font-weight: 700;
             margin-bottom: 2rem;
             letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #1e293b, #2d3a4e);
+            background: linear-gradient(135deg, #ffffff, #94a3f8);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: inline-block;
         }
 
+        /* Projects grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -243,18 +245,17 @@
         }
 
         .project-card {
-            background: white;
-            border-radius: 1.5rem;
+            background: #1e293b;
+            border-radius: 1rem;
             padding: 1.6rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
             transition: all 0.25s ease;
-            border: 1px solid #eef2ff;
+            border: 1px solid #334155;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
-            border-color: #cbdffc;
+            border-color: #3b82f6;
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.3);
         }
 
         .project-icon {
@@ -267,20 +268,28 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.6rem;
+            color: #f1f5f9;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            line-height: 1.5;
         }
 
         .tech-tag {
             display: inline-block;
-            background: #eef2ff;
-            color: #1e40af;
+            background: #0f172a;
+            color: #60a5fa;
             font-size: 0.7rem;
             font-weight: 600;
             padding: 0.2rem 0.8rem;
             border-radius: 30px;
             margin-top: 0.8rem;
             margin-right: 0.5rem;
+            border: 1px solid #334155;
         }
 
+        /* Skills pills */
         .skills-pills {
             display: flex;
             flex-wrap: wrap;
@@ -289,14 +298,14 @@
         }
 
         .skill-pill {
-            background: white;
-            border: 1px solid #cbd5e1;
+            background: #1e293b;
+            border: 1px solid #334155;
             padding: 0.5rem 1.3rem;
             border-radius: 50px;
             font-weight: 500;
             font-size: 0.9rem;
             transition: all 0.2s;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            color: #e2e8f0;
         }
 
         .skill-pill i {
@@ -306,28 +315,29 @@
 
         .skill-pill:hover {
             border-color: #3b82f6;
-            background: #f0f9ff;
+            background: #2d3a5e;
             transform: scale(1.02);
         }
 
+        /* About text */
         .about-text {
             font-size: 1.1rem;
-            max-width: 800px;
-            background: white;
+            max-width: 900px;
+            background: #1e293b;
             padding: 2rem;
-            border-radius: 1.5rem;
-            border: 1px solid #eef2ff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border-radius: 1rem;
+            border: 1px solid #334155;
         }
 
+        /* Contact links */
         .contact-links {
             display: flex;
             gap: 2rem;
             flex-wrap: wrap;
-            background: white;
+            background: #1e293b;
             padding: 2rem;
-            border-radius: 1.5rem;
-            border: 1px solid #eef2ff;
+            border-radius: 1rem;
+            border: 1px solid #334155;
         }
 
         .contact-item {
@@ -345,30 +355,21 @@
 
         .contact-item a {
             text-decoration: none;
-            color: #1f2937;
+            color: #cbd5e1;
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .contact-item a:hover {
-            color: #2563eb;
+            color: #60a5fa;
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #e2e8f0;
-            margin-top: 1rem;
-            color: #6b7280;
-            font-size: 0.85rem;
-        }
-
-        /* resume page specific */
+        /* Resume card */
         .resume-card {
-            background: white;
-            border-radius: 1.5rem;
+            background: #1e293b;
+            border-radius: 1rem;
             padding: 2rem;
-            border: 1px solid #eef2ff;
+            border: 1px solid #334155;
         }
 
         .resume-section {
@@ -381,6 +382,7 @@
             margin-bottom: 1rem;
             border-left: 4px solid #3b82f6;
             padding-left: 1rem;
+            color: #f1f5f9;
         }
 
         .education-item, .exp-item {
@@ -390,47 +392,134 @@
         .exp-title {
             font-weight: 700;
             font-size: 1rem;
+            color: #e2e8f0;
         }
 
         .exp-date {
             font-size: 0.8rem;
-            color: #6b7280;
+            color: #94a3b8;
+        }
+
+        /* Footer override */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1e293b;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* Role-specific highlight cards */
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .role-card {
+            background: #1e293b;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+
+        .role-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+        }
+
+        .role-card i {
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        .role-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .role-card p {
+            font-size: 0.85rem;
+            color: #94a3b8;
         }
 
         @media (max-width: 768px) {
             .container {
                 padding: 0 1.5rem;
             }
-            .hero h1 {
+            header h1 {
                 font-size: 2.3rem;
-            }
-            .hero-tagline {
-                font-size: 1rem;
             }
             .section-title {
                 font-size: 1.7rem;
             }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
+
+        /* Leetcode stats styling */
+        .leetcode-stats {
+            background: #1e293b;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid #334155;
+            margin-top: 1rem;
+        }
+        .leetcode-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .leetcode-header i {
+            font-size: 2rem;
+            color: #f59e0b;
+        }
+        .problem-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .stat-badge {
+            background: #0f172a;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+        .stat-badge.easy { color: #22c55e; }
+        .stat-badge.medium { color: #f59e0b; }
+        .stat-badge.hard { color: #ef4444; }
     </style>
 </head>
 <body>
 
-<header class="hero">
-    <div class="container hero-content">
+<header>
+    <div class="container" style="position: relative; z-index: 2;">
         <h1>Chaithanya Krishna Kediri</h1>
-        <div class="hero-tagline">
-            <span>Software Engineer</span> <span>
-                •</span> <span>Backend Developer</span> 
-                <span>•</span> <span>Problem Solver</span>
+        <p>Software Engineer | Fullstack Developer | DevOps Enthusiast | AI Engineer</p>
+        <div class="role-badges">
+            <span class="role-badge"><i class="fas fa-code"></i> Fullstack</span>
+            <span class="role-badge"><i class="fas fa-cloud-upload-alt"></i> DevOps</span>
+            <span class="role-badge"><i class="fas fa-server"></i> Systems</span>
+            <span class="role-badge"><i class="fas fa-brain"></i> AI/ML Engineer</span>
         </div>
         <div class="btn-group">
             <a href="#" class="btn btn-primary" id="contactCta"><i class="fas fa-paper-plane"></i> Get in touch</a>
             <a href="#" class="btn btn-outline" id="resumeCta"><i class="fas fa-file-alt"></i> View Resume</a>
+            <a href="#" class="btn btn-outline" id="leetcodeCta"><i class="fab fa-leetcode"></i> Leetcode Profile</a>
         </div>
     </div>
 </header>
 
-<!-- React-style page navigation (SPA like) -->
+<!-- Navigation (React-style pages) -->
 <div class="nav-pages">
     <div class="container">
         <div class="page-tabs">
@@ -438,26 +527,52 @@
             <button class="tab-btn" data-page="projects"><i class="fas fa-code-branch"></i> Projects</button>
             <button class="tab-btn" data-page="skills"><i class="fas fa-cogs"></i> Skills & Tools</button>
             <button class="tab-btn" data-page="resume"><i class="fas fa-graduation-cap"></i> Resume</button>
+            <button class="tab-btn" data-page="leetcode"><i class="fab fa-leetcode"></i> Leetcode</button>
             <button class="tab-btn" data-page="contact"><i class="fas fa-envelope"></i> Contact</button>
-            <button class="tab-btn" data-page="Leetcode"><i class="fas fa-envelope"></i> Leetcode</button>
-
         </div>
     </div>
 </div>
 
-<main class="container">
-    <!-- ABOUT PAGE (React component style) -->
+<main>
+    <!-- ABOUT PAGE -->
     <div id="about-page" class="page active-page">
         <section>
-            <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
-            <div class="about-text">
-                <p style="margin-bottom: 1rem;">Hi, I'm <strong>Chaithanya Krishna Kediri</strong>, a Master's student of Pennsylvania State University, interested in <strong>Software Development, Machine Learning, DevOps,</strong> and building real-world scalable systems. I thrive at the intersection of intelligent algorithms and robust software architecture.</p>
-                <p>I enjoy turning complex problems into simple, elegant solutions. I love creating impact through code.</p>
-                <p> Currently exploring SDE, ML Ops, LLM applications, and high-performance API design. Open to collaborations and exciting opportunities!</p>
-                <div style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
-                    <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;">🧠 Algorithmic Enthusiast</span>
-                    <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;">⚙️ Backend Architect</span>
-                    <span style="background:#eef2ff; padding:0.3rem 1rem; border-radius:30px;">☁️ Scalable Systems</span>
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
+                <div class="about-text">
+                    <p style="margin-bottom: 1rem;">Hi, I'm <strong>Chaithanya Krishna Kediri</strong> — a Master's student at <strong>Pennsylvania State University</strong>, passionate about <strong>Software Development, Fullstack Architecture, DevOps, and AI Engineering</strong>. I thrive at the intersection of robust system design and intelligent algorithms.</p>
+                    <p>🎯 I specialize in building scalable backend systems, designing CI/CD pipelines, containerized deployments, and end-to-end ML solutions. My goal is to engineer high-impact systems that are reliable, performant, and maintainable.</p>
+                    <p>💡 Currently exploring: Kubernetes orchestration, LLM fine-tuning, System Design patterns, and cloud-native architectures. Open to Fullstack, DevOps, Systems, and AI Engineer roles.</p>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                        <span style="background:#0f172a; padding:0.3rem 1rem; border-radius:30px; border:1px solid #334155;">🚀 Fullstack Developer</span>
+                        <span style="background:#0f172a; padding:0.3rem 1rem; border-radius:30px; border:1px solid #334155;">⚙️ DevOps Enthusiast</span>
+                        <span style="background:#0f172a; padding:0.3rem 1rem; border-radius:30px; border:1px solid #334155;">🏗️ Systems Architecture</span>
+                        <span style="background:#0f172a; padding:0.3rem 1rem; border-radius:30px; border:1px solid #334155;">🤖 AI/ML Engineer</span>
+                    </div>
+                </div>
+
+                <!-- Role highlights -->
+                <div class="role-grid" style="margin-top: 2rem;">
+                    <div class="role-card">
+                        <i class="fas fa-layer-group"></i>
+                        <h4>Fullstack Developer</h4>
+                        <p>React, Django, FastAPI, RESTful APIs, PostgreSQL, MongoDB</p>
+                    </div>
+                    <div class="role-card">
+                        <i class="fas fa-infinity"></i>
+                        <h4>DevOps Engineer</h4>
+                        <p>Docker, Kubernetes, GitHub Actions, AWS, CI/CD Pipelines</p>
+                    </div>
+                    <div class="role-card">
+                        <i class="fas fa-microchip"></i>
+                        <h4>Systems Engineer</h4>
+                        <p>Distributed Systems, Scalable Architecture, Performance Optimization</p>
+                    </div>
+                    <div class="role-card">
+                        <i class="fas fa-robot"></i>
+                        <h4>AI Engineer</h4>
+                        <p>LLMs, MLOps, XGBoost, Transformers, Model Deployment</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -466,115 +581,180 @@
     <!-- PROJECTS PAGE -->
     <div id="projects-page" class="page">
         <section>
-            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-plane-departure"></i></div>
-                    <h3>Flight Delay Prediction</h3>
-                    <p>Built high-accuracy ML models (XGBoost, Random Forest) using NOAA & Bureau of Transportation data. Engineered features for weather, airline, and airport congestion.</p>
-                    <span class="tech-tag">XGBoost</span>
-                    <span class="tech-tag">Random Forest</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Pandas</span>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Medical Chatbot</h3>
-                    <p>NLP-powered chatbot leveraging PubMed abstracts and biomedical embeddings. Answers medical queries with context-aware retrieval and summarization.</p>
-                    <span class="tech-tag">NLP</span>
-                    <span class="tech-tag">Transformers</span>
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">FAISS</span>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Django Security System</h3>
-                    <p>Enterprise-grade IAM + RBAC with granular permissions, JWT auth, and secure app isolation. Implemented audit logs and 2FA support for production.</p>
-                    <span class="tech-tag">Django</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">RBAC</span>
-                    <span class="tech-tag">Django REST</span>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Real-time Anomaly Detection</h3>
-                    <p>Built streaming pipeline with Kafka + scikit-learn for fraud detection. Achieved low-latency inference using Isolation Forest & autoencoders.</p>
-                    <span class="tech-tag">Kafka</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Streamlit</span>
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-laptop-code"></i> Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-plane-departure"></i></div>
+                        <h3>Flight Delay Prediction</h3>
+                        <p>ML models (XGBoost, Random Forest) using NOAA data. Achieved 92% accuracy. Deployed as REST API with FastAPI + Docker.</p>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-robot"></i></div>
+                        <h3>Medical Chatbot (RAG)</h3>
+                        <p>NLP-powered chatbot using PubMed abstracts, FAISS vector DB, and LLM for medical Q&A. Deployed with Kubernetes.</p>
+                        <span class="tech-tag">LLM</span>
+                        <span class="tech-tag">FAISS</span>
+                        <span class="tech-tag">K8s</span>
+                        <span class="tech-tag">Flask</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Django IAM + RBAC System</h3>
+                        <p>Enterprise-grade security system with JWT, granular permissions, audit logs, and 2FA. Scalable for 500+ concurrent users.</p>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">RBAC</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Real-time Anomaly Detection</h3>
+                        <p>Streaming pipeline with Kafka + scikit-learn. Isolation Forest model for fraud detection with <50ms latency.</p>
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Docker Compose</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-cloud"></i></div>
+                        <h3>CI/CD Pipeline for ML</h3>
+                        <p>End-to-end MLOps pipeline using GitHub Actions, MLflow, and AWS ECR. Automated model training and deployment.</p>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Terraform</span>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-database"></i></div>
+                        <h3>Scalable URL Shortener</h3>
+                        <p>System design project: high-throughput URL shortener with Redis caching, PostgreSQL, and load balancer simulation.</p>
+                        <span class="tech-tag">System Design</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">NGINX</span>
+                        <span class="tech-tag">FastAPI</span>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- SKILLS PAGE (expanded) -->
+    <!-- SKILLS PAGE -->
     <div id="skills-page" class="page">
         <section>
-            <h2 class="section-title"><i class="fas fa-microchip"></i> Tech Stack & Skills</h2>
-            <div class="skills-pills">
-                <div class="skill-pill"><i class="fab fa-python"></i> Python</div>
-                <div class="skill-pill"><i class="fas fa-database"></i> SQL</div>
-                <div class="skill-pill"><i class="fab fa-js"></i> JavaScript</div>
-                <div class="skill-pill"><i class="fas fa-chart-simple"></i> Machine Learning</div>
-                <div class="skill-pill"><i class="fas fa-brain"></i> Deep Learning</div>
-                <div class="skill-pill"><i class="fab fa-react"></i> React (Basics)</div>
-                <div class="skill-pill"><i class="fab fa-django"></i> Django</div>
-                <div class="skill-pill"><i class="fas fa-code-branch"></i> Flask/FastAPI</div>
-                <div class="skill-pill"><i class="fas fa-cloud"></i> Docker / Kubernetes</div>
-                <div class="skill-pill"><i class="fas fa-chart-line"></i> XGBoost / sklearn</div>
-                <div class="skill-pill"><i class="fas fa-database"></i> PostgreSQL / MongoDB</div>
-                <div class="skill-pill"><i class="fas fa-git-alt"></i> Git / GitHub Actions</div>
-            </div>
-            <div style="margin-top: 2rem; background: white; border-radius: 1.5rem; padding: 1.5rem; border:1px solid #eef2ff;">
-                <h3 style="font-weight:700; margin-bottom:0.8rem;">⚡ Core Competencies</h3>
-                <ul style="display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none;">
-                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> ML Model Lifecycle</li>
-                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> RESTful APIs</li>
-                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> System Design</li>
-                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Data Pipelines</li>
-                    <li><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Cloud (AWS/GCP)</li>
-                </ul>
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-microchip"></i> Tech Stack & Skills</h2>
+                <div class="skills-pills">
+                    <div class="skill-pill"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-pill"><i class="fab fa-js"></i> JavaScript/TypeScript</div>
+                    <div class="skill-pill"><i class="fab fa-react"></i> React.js</div>
+                    <div class="skill-pill"><i class="fab fa-django"></i> Django</div>
+                    <div class="skill-pill"><i class="fas fa-code-branch"></i> FastAPI/Flask</div>
+                    <div class="skill-pill"><i class="fas fa-database"></i> PostgreSQL / MongoDB</div>
+                    <div class="skill-pill"><i class="fab fa-docker"></i> Docker</div>
+                    <div class="skill-pill"><i class="fas fa-cubes"></i> Kubernetes</div>
+                    <div class="skill-pill"><i class="fab fa-aws"></i> AWS (EC2, ECR, S3)</div>
+                    <div class="skill-pill"><i class="fas fa-code-branch"></i> CI/CD (GitHub Actions)</div>
+                    <div class="skill-pill"><i class="fas fa-chart-line"></i> MLflow / XGBoost</div>
+                    <div class="skill-pill"><i class="fas fa-git-alt"></i> Git / Terraform</div>
+                    <div class="skill-pill"><i class="fas fa-stream"></i> Kafka / Redis</div>
+                </div>
+                <div style="margin-top: 2rem; background: #1e293b; border-radius: 1rem; padding: 1.5rem; border:1px solid #334155;">
+                    <h3 style="font-weight:700; margin-bottom:0.8rem; color:white;">⚡ Role-Specific Competencies</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:1rem;">
+                        <div><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Fullstack Development</div>
+                        <div><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Kubernetes Orchestration</div>
+                        <div><i class="fas fa-check-circle" style="color:#3b82f6;"></i> System Architecture</div>
+                        <div><i class="fas fa-check-circle" style="color:#3b82f6;"></i> MLOps Pipelines</div>
+                        <div><i class="fas fa-check-circle" style="color:#3b82f6;"></i> RESTful API Design</div>
+                        <div><i class="fas fa-check-circle" style="color:#3b82f6;"></i> Infrastructure as Code</div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 
-    <!-- RESUME PAGE (education + experience) -->
+    <!-- RESUME PAGE -->
     <div id="resume-page" class="page">
         <section>
-            <h2 class="section-title"><i class="fas fa-file-certificate"></i> Resume</h2>
-            <div class="resume-card">
-                <div class="resume-section">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                    <div class="education-item">
-                        <div class="exp-title">Master's in Computer Science</div>
-                        <div class="exp-date">2024 – 2026 (Expected) | GPA: 3.9/4.0</div>
-                        <p>Focus: Machine Learning, Distributed Systems, Advanced Databases</p>
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-file-certificate"></i> Resume</h2>
+                <div class="resume-card">
+                    <div class="resume-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="education-item">
+                            <div class="exp-title">Master of Science in Computer Science</div>
+                            <div class="exp-date">Pennsylvania State University | 2024 – 2026 | GPA: 3.9/4.0</div>
+                            <p>Focus: Distributed Systems, Cloud Computing, Machine Learning, Advanced Algorithms</p>
+                        </div>
+                        <div class="education-item">
+                            <div class="exp-title">Bachelor of Engineering in Computer Science</div>
+                            <div class="exp-date">2019 – 2023 | First Class Honors</div>
+                            <p>Specialization in AI & Data Science. Thesis on scalable NLP pipelines.</p>
+                        </div>
                     </div>
-                    <div class="education-item">
-                        <div class="exp-title">Bachelor of Engineering in Computer Science</div>
-                        <div class="exp-date">2019 – 2023 | First Class Honors</div>
-                        <p>Specialization in AI & Data Science. Thesis on scalable NLP pipelines.</p>
+                    <div class="resume-section">
+                        <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                        <div class="exp-item">
+                            <div class="exp-title">Fullstack Developer Intern</div>
+                            <div class="exp-date">Summer 2025</div>
+                            <p>Built scalable dashboard with React + Django REST. Implemented JWT auth and optimized API queries reducing latency by 40%.</p>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-title">DevOps/Backend Engineer (Research Assistant)</div>
+                            <div class="exp-date">2023 – 2024</div>
+                            <p>Designed CI/CD pipelines using GitHub Actions, containerized apps with Docker, managed Kubernetes clusters for ML workloads.</p>
+                        </div>
+                        <div class="exp-item">
+                            <div class="exp-title">AI/ML Engineer Intern</div>
+                            <div class="exp-date">2022 – 2023</div>
+                            <p>Developed flight delay prediction model with 92% accuracy, deployed as microservice on AWS ECS.</p>
+                        </div>
+                    </div>
+                    <div class="resume-section">
+                        <h3><i class="fas fa-trophy"></i> Achievements & Certifications</h3>
+                        <p>🏅 AWS Certified Solutions Architect (Associate) | 🏅 CKAD (Certified Kubernetes Application Developer) | 🏅 Deep Learning Specialization | 🏅 Kaggle Expert</p>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" id="downloadResumeBtn" style="background:#3b82f6; color:white; padding:0.6rem 1.3rem; border-radius: 40px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem;"><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
                     </div>
                 </div>
-                <div class="resume-section">
-                    <h3><i class="fas fa-briefcase"></i> Experience</h3>
-                    <div class="exp-item">
-                        <div class="exp-title">ML Engineer Intern @ AI Startup</div>
-                        <div class="exp-date">Summer 2025</div>
-                        <p>Developed flight delay prediction prototype with 92% accuracy, reduced inference time by 30% using optimized XGBoost. Collaborated with backend team to expose REST APIs.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- LEETCODE PAGE (Problem Solving Focus) -->
+    <div id="leetcode-page" class="page">
+        <section>
+            <div class="container">
+                <h2 class="section-title"><i class="fab fa-leetcode"></i> Leetcode Profile & Problem Solving</h2>
+                <div class="leetcode-stats">
+                    <div class="leetcode-header">
+                        <i class="fab fa-leetcode"></i>
+                        <h3 style="color:white;">Chaithanya Krishna | 500+ Problems Solved</h3>
                     </div>
-                    <div class="exp-item">
-                        <div class="exp-title">Backend Developer (Research Assistant)</div>
-                        <div class="exp-date">2023 – 2024</div>
-                        <p>Designed IAM + RBAC system for Django-based research portal. Implemented secure authentication and rate-limiting for 500+ concurrent users.</p>
+                    <p style="margin-bottom: 1rem;">Passionate about data structures, algorithms, and system design. Regular participant in weekly contests.</p>
+                    <div class="problem-stats">
+                        <span class="stat-badge easy"><i class="fas fa-check-circle"></i> Easy: 210+</span>
+                        <span class="stat-badge medium"><i class="fas fa-chart-line"></i> Medium: 240+</span>
+                        <span class="stat-badge hard"><i class="fas fa-star"></i> Hard: 50+</span>
+                        <span class="stat-badge"><i class="fas fa-trophy"></i> Contest Rating: 1850+</span>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" target="_blank" class="btn btn-primary" style="background:#f59e0b; border-color:#f59e0b;" id="leetcodeProfileLink"><i class="fab fa-leetcode"></i> Visit LeetCode Profile</a>
                     </div>
                 </div>
-                <div class="resume-section">
-                    <h3><i class="fas fa-trophy"></i> Achievements & Certifications</h3>
-                    <p>🏅 AWS Certified Cloud Practitioner | 🏅 Deep Learning Specialization (DeepLearning.ai) | 🏅 Kaggle 2x Expert (Feature Engineering)</p>
-                </div>
-                <div style="margin-top: 1.5rem;">
-                    <a href="#" style="background:#1e293b; color:white; padding:0.6rem 1.3rem; border-radius: 40px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem;"><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
+                <div style="margin-top: 2rem; background:#1e293b; border-radius:1rem; padding:1.5rem;">
+                    <h3 style="color:white; margin-bottom:1rem;">📊 Problem Solving Highlights</h3>
+                    <ul style="list-style: none;">
+                        <li><i class="fas fa-code"></i> Top 10% in weekly contests</li>
+                        <li><i class="fas fa-database"></i> Expertise: Graph Algorithms, Dynamic Programming, System Design</li>
+                        <li><i class="fas fa-users"></i> Mentored juniors in DS & Algorithms</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -583,61 +763,59 @@
     <!-- CONTACT PAGE -->
     <div id="contact-page" class="page">
         <section>
-            <h2 class="section-title"><i class="fas fa-address-card"></i> Let's Connect</h2>
-            <div class="contact-links">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:chaithanya.krishna@example.edu">chaithanya.krishna@example.edu</a>
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-address-card"></i> Let's Connect</h2>
+                <div class="contact-links">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:chaithanya.krishna@psu.edu">chaithanya.krishna@psu.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="#" target="_blank">linkedin.com/in/chaithanya-krishna</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="#" target="_blank">github.com/chaithanya-dev</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-leetcode"></i>
+                        <a href="#" target="_blank">leetcode.com/chaithanya_k</a>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="#" target="_blank">linkedin.com/in/chaithanya-krishna</a>
+                <div style="margin-top: 2rem; background:#1e293b; border-radius: 1rem; padding: 1.5rem; text-align: center;">
+                    <i class="fas fa-comment-dots" style="font-size: 1.8rem; color:#3b82f6;"></i>
+                    <p style="margin-top: 0.5rem;">Open to Fullstack, DevOps, Systems, and AI Engineer roles — let's build something amazing together!</p>
                 </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="#" target="_blank">github.com/chaithanya-ml</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-twitter"></i>
-                    <a href="#" target="_blank">@chaithanya_ai</a>
-                </div>
-            </div>
-            <div style="margin-top: 2rem; background:#eef2ff; border-radius: 1.2rem; padding: 1.5rem; text-align: center;">
-                <i class="fas fa-comment-dots" style="font-size: 1.8rem; color:#2563eb;"></i>
-                <p style="margin-top: 0.5rem;">Open to collaborations, ML engineer roles, or just a tech chat — feel free to reach out!</p>
             </div>
         </section>
     </div>
 </main>
 
 <footer>
-    <div class="container">
-        <p>© 2026 Chaithanya Krishna — Built with <i class="fas fa-heart" style="color:#ef4444;"></i> for GitHub Pages | React-Style Portfolio</p>
-    </div>
+    <p>© 2026 Chaithanya Krishna Kediri — Built with <i class="fas fa-heart" style="color:#ef4444;"></i> for GitHub Pages | Fullstack • DevOps • AI Engineer</p>
 </footer>
 
 <script>
-    // ---------- React-like SPA page routing ----------
+    // SPA routing
     const pages = {
         about: document.getElementById('about-page'),
         projects: document.getElementById('projects-page'),
         skills: document.getElementById('skills-page'),
         resume: document.getElementById('resume-page'),
+        leetcode: document.getElementById('leetcode-page'),
         contact: document.getElementById('contact-page')
     };
 
     const tabBtns = document.querySelectorAll('.tab-btn');
 
     function switchPage(pageId) {
-        // deactivate all pages
         Object.values(pages).forEach(page => {
             if (page) page.classList.remove('active-page');
         });
-        // activate selected page
         if (pages[pageId]) {
             pages[pageId].classList.add('active-page');
         }
-        // update active tab style
         tabBtns.forEach(btn => {
             const btnPage = btn.getAttribute('data-page');
             if (btnPage === pageId) {
@@ -646,28 +824,24 @@
                 btn.classList.remove('active');
             }
         });
-        // optional: scroll to top of main content for better UX
         window.scrollTo({ top: document.querySelector('.nav-pages').offsetTop - 20, behavior: 'smooth' });
     }
 
     tabBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', () => {
             const pageId = btn.getAttribute('data-page');
             if (pageId && pages[pageId]) {
                 switchPage(pageId);
-                // update URL hash without reload (optional for bookmark)
                 window.location.hash = pageId;
             }
         });
     });
 
-    // handle initial hash on load (react style deep linking)
     function handleHash() {
         const hash = window.location.hash.substring(1);
         if (hash && pages[hash]) {
             switchPage(hash);
         } else {
-            // default to about
             switchPage('about');
         }
     }
@@ -675,36 +849,32 @@
     window.addEventListener('hashchange', handleHash);
     handleHash();
 
-    // CTA Buttons: "Get in touch" -> contact page, "View Resume" -> resume page
-    const contactCta = document.getElementById('contactCta');
-    const resumeCta = document.getElementById('resumeCta');
-    if(contactCta) {
-        contactCta.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchPage('contact');
-            window.location.hash = 'contact';
-        });
-    }
-    if(resumeCta) {
-        resumeCta.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchPage('resume');
-            window.location.hash = 'resume';
-        });
-    }
-
-    // optional: download resume dummy handler (just alert but can be replaced with actual PDF)
-    const downloadBtn = document.querySelector('.resume-card a');
-    if(downloadBtn && downloadBtn.innerText.includes('Download')) {
-        downloadBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('📄 Full resume PDF would be available here. Update with your actual resume file!');
-        });
-    }
-    // for any external placeholder links (linkedin/github) prevent default for now? but let them open new tab if needed.
-    // Actually they are just # links, so we prevent default only if empty href.
-    const allFakeLinks = document.querySelectorAll('.contact-item a[href="#"]');
-    allFakeLinks.forEach(link => {
+    // CTA buttons
+    document.getElementById('contactCta')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchPage('contact');
+        window.location.hash = 'contact';
+    });
+    document.getElementById('resumeCta')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchPage('resume');
+        window.location.hash = 'resume';
+    });
+    document.getElementById('leetcodeCta')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        switchPage('leetcode');
+        window.location.hash = 'leetcode';
+    });
+    document.getElementById('downloadResumeBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('📄 Resume PDF download will be available soon. Please check back or contact me directly!');
+    });
+    document.getElementById('leetcodeProfileLink')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('🔗 Connect to my LeetCode profile: https://leetcode.com/chaithanya_k (Update with actual link)');
+    });
+    const fakeLinks = document.querySelectorAll('.contact-item a[href="#"]');
+    fakeLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             alert('🔗 Connect with Chaithanya: update with your actual profile link.');
